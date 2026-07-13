@@ -1,16 +1,18 @@
 import type { TaskType } from 'entities/task/model/types';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Filter } from './types';
-
-const initialData: TaskType[] = [
-    { id: '1', title: 'Провести аналитику', completed: false },
-    { id: '2', title: 'Разработать функионал на бэке', completed: true },
-    { id: '3', title: 'Разработать функионал на фронте', completed: false },
-];
+import { useGetTasksQuery } from 'entities/task/api/tasksApi';
 
 export function useTasks() {
-    const [tasks, setTasks] = useState<TaskType[]>(initialData);
+    const { data: initialData = [] } = useGetTasksQuery();
     const [filter, setFilter] = useState<Filter>('all');
+    const [tasks, setTasks] = useState<TaskType[]>([]);
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setTasks(initialData);
+
+    }, [initialData]);
 
     const removeTask = useCallback((id: string) => {
         setTasks(prev => prev.filter(t => String(t.id) !== id));
@@ -28,7 +30,6 @@ export function useTasks() {
                 return tasks;
         }
     }, [filter, tasks]);
-
 
     return {
         tasks: filteredTasks,

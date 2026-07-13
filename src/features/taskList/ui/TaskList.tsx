@@ -1,5 +1,5 @@
 import type { TaskType } from 'entities/task/model/types';
-import TaskCard from 'entities/task/ui/TaskCard';
+import { TaskCard } from 'entities/task/ui/TaskCard';
 import styles from './TaskList.module.css';
 import type { Filter } from '../model/types';
 import { DeleteIcon } from 'shared/ui/icons';

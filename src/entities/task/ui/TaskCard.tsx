@@ -8,7 +8,7 @@ const statusIcons = {
     uncompleted: <img src={UncompletedIcon} alt="completed"/>,
 };
 
-const TaskCard = ({ task }: TaskProps) => {
+export const TaskCard = React.memo(({ task }: TaskProps) => {
     return (
         <div className={styles.task}>
             <span className={styles.icon}>
@@ -21,9 +21,7 @@ const TaskCard = ({ task }: TaskProps) => {
             </span>
         </div>
     );
-};
+});
 
 TaskCard.displayName = "TaskCard"
-
-export default React.memo(TaskCard)
 
