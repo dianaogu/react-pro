@@ -34,7 +34,7 @@ export default [
         languageOptions: {
             parser: tsParser,
             parserOptions: {
-                project: "./tsconfig.eslint.json",
+                project: "./tsconfig.app.json",
             },
         },
 
@@ -86,6 +86,7 @@ export default [
                         { from: "entities", allow: ["shared"] },
                         { from: "widgets", allow: ["shared", "features", "entities"] },
                         { from: "pages", allow: ["widgets", "features", "entities", "shared"] },
+                        { from: "app", allow: ["entities", "shared"] },
                     ],
                 },
             ],
