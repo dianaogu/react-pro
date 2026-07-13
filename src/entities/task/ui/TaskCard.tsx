@@ -1,13 +1,14 @@
 import styles from "./TaskCard.module.css";
 import type { TaskProps } from "../model/types";
 import { CompletedIcon, UncompletedIcon } from "shared/ui/icons";
+import React from "react";
 
 const statusIcons = {
-    completed: <img src={CompletedIcon} alt="completed" />,
-    uncompleted: <img src={UncompletedIcon} alt="completed" />,
+    completed: <img src={CompletedIcon} alt="completed"/>,
+    uncompleted: <img src={UncompletedIcon} alt="completed"/>,
 };
 
-export const TaskCard = ({ task }: TaskProps) => {
+const TaskCard = ({ task }: TaskProps) => {
     return (
         <div className={styles.task}>
             <span className={styles.icon}>
@@ -21,3 +22,8 @@ export const TaskCard = ({ task }: TaskProps) => {
         </div>
     );
 };
+
+TaskCard.displayName = "TaskCard"
+
+export default React.memo(TaskCard)
+
