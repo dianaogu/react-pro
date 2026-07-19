@@ -126,9 +126,9 @@ export const RegistrationForm = () => {
                   type="url"
                   {...register(`socialLinks.${index}.url`)}
                   className={`${styles.input} ${touchedFields.socialLinks?.[index]?.url &&
-                      errors.socialLinks?.[index]?.url
-                      ? styles.inputError
-                      : ""
+                    errors.socialLinks?.[index]?.url
+                    ? styles.inputError
+                    : ""
                     }`}
                   placeholder={`https://github.com/username${index + 1}`}
                 />

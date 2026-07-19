@@ -1,12 +1,6 @@
 import { useActionState } from "react";
 import styles from "./SubscriptionWizard.module.css";
-
-type FormState = {
-    step: 1 | 2;
-    email: string;
-    error: string;
-    success: string;
-};
+import type { FormState } from "../model";
 
 const initialState: FormState = {
     step: 1,
